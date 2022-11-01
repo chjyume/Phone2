@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>时尚濮院介绍页面</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+      html{
+      	width: 640px;
+      	height:1030px ;
+      	margin: 0px auto;
+      }
+      body{
+		
+        background-image:url("img/background5.png");
+ 		background-repeat:no-repeat;
+        background-size:cover;
+      }
+      .title{
+      	font-size: 30px;
+      	font-weight: bold;
+      	font-family:"华文琥珀";
+      	color: mediumpurple;
+      	text-shadow: 0 0 5px white ;
+      	text-align:center;
+      	margin-top:50px;
+      }
+      .picture{
+      	
+		text-align:center;
+		margin-top:50px;
+		margin-left: 30px;
+      }
+	  .word1{
+      	font-size: 20px;
+      	font-weight: bold;
+      	font-family:"黑体";
+      	color: purple;
+      	text-align:center;
+      	margin-left:-200px;	
+     
+      }
+      .word2{
+      	width:70px;
+      	background-color:purple;
+      	border:3px solid purple;
+      	font-size: 20px;
+      	font-weight: bold;
+      	font-family:"黑体";
+      	color: white;
+      	text-align:center;
+      	margin-top:-25px;
+      	margin-left:60px;	
+      	border-radius:10px;
+      }
+      .picture1{
+      	
+		text-align:center;
+		margin-top:-80px;
+		margin-left:-100px;	
+      }
+
+    </style>
+  </head>
+  
+  <body>
+  	<div class="title"><p>濮院羊毛衫市场</p></div>
+  	<div class="picture"><p><img src="img/build1.png" height="150px" width="280px"></p> </div>
+  	<div class="word1">简介</div>
+  	<div class="word2">图片</div>
+  	<div class="picture1"><img src="img/picture.png" height="600px" width="800px"></div>
+  </body>
+  <script>
+	var deviceWidth = parseInt(window.screen.width);  //获取当前设备的屏幕宽度
+	var deviceScale = deviceWidth / 640;  //得到当前设备屏幕与640之间的比例，之后我们就可以将网页宽度固定为640px
+	var deviceHeight = parseInt(window.screen.height);
+	var ua = navigator.userAgent;
+	//获取当前设备类型（安卓或苹果）
+	if (/Android (\d+\.\d+)/.test(ua)) {
+		var version = parseFloat(RegExp.$1);
+		if (version > 2.3) {
+			document.write('<meta name="viewport" content="width=640,height=deviceHeight,initial-scale=' + deviceScale + ', minimum-scale = ' + deviceScale + ', maximum-scale = ' + deviceScale + ', target-densitydpi=device-dpi">');
+		} else {
+			document.write('<meta name="viewport" content="width=640,initial-scale=0.75,maximum-scale=0.75,minimum-scale=0.75,target-densitydpi=device-dpi" />');
+		}
+	} else {
+		document.write('<meta name="viewport" content="width=640, user-scalable=no">');
+	}
+  </script> 
+</html>

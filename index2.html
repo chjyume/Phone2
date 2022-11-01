@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>地图页面</title>
+		<style>
+    html{
+      width:640px; 
+      height:1030px;
+      margin:0px auto;
+    }
+    body{ 
+      margin:0px auto;
+      width:100%; 
+      height:100%;
+      background-image:url("img/background2.1.png");
+      background-repeat:no-repeat;
+     	background-size:cover;
+      display:flex;
+      position: relative;
+      justify-content:center;
+   }
+   .img1{
+   	  position:absolute;
+      margin:0px auto;
+      top:60px;
+      object-fit: cover;
+	    z-index:-1;
+   }
+   .img2{
+   	  position:absolute;
+      margin:0px auto;
+      top: 332px; 
+      right:-6px; 
+	    z-index:0;
+   }
+   .img3{
+   	  position:absolute;
+      margin:0px auto;
+      top: 700px;
+      left: 315px;  
+	    z-index:1;
+      cursor: pointer;
+   }
+   .img4{
+   	  position:absolute;
+      margin:0px auto;
+      top: 480px;
+      left:18px;  
+	    z-index:1;
+      cursor: pointer;
+   }
+   .img5{
+   	  position:absolute;
+      margin:0px auto;
+      top: 340px;
+      left: 280px;  
+	    z-index:1;
+      cursor: pointer;
+   }
+   .img6{
+    position:absolute;
+    margin:0px auto;
+    top: 10px;
+    left: 430px;  
+	  z-index:1;
+   }
+   </style>
+	</head>
+	<body>
+		<div class="img1"><img src="img/background2.2.png" width="720px"  alt=""></div>
+		<div class="img2"><img src="img/background2.3.png" width="680px"  alt=""></div>
+    <div class="img6"><img src="img/background2.4.png" width="180px"  alt=""></div>
+    <div class="img3"><img src="img/build1.png" width="305px"  alt="" onclick="javascript:location.href='index3.html'"></div>
+    <div class="img4"><img src="img/build2.png" width="357px"  alt=""></div>
+    <div class="img5"><img src="img/build3.png" width="355px"  alt=""></div>
+		
+	</body>
+  <script>
+   $("#imgClick").click(function(){
+    location.href='index3.html';
+   })
+  </script>
+  <script>
+    var deviceWidth = parseInt(window.screen.width);  //获取当前设备的屏幕宽度
+    var deviceScale = deviceWidth / 640;  //得到当前设备屏幕与640之间的比例，之后我们就可以将网页宽度固定为640px
+    var deviceHeight = parseInt(window.screen.height);
+    var ua = navigator.userAgent;
+    //获取当前设备类型（安卓或苹果）
+    if (/Android (\d+\.\d+)/.test(ua)) {
+        var version = parseFloat(RegExp.$1);
+        if (version > 2.3) {
+            document.write('<meta name="viewport" content="width=640,height=deviceHeight,initial-scale=' + deviceScale + ', minimum-scale = ' + deviceScale + ', maximum-scale = ' + deviceScale + ', target-densitydpi=device-dpi">');
+        } else {
+            document.write('<meta name="viewport" content="width=640,initial-scale=0.75,maximum-scale=0.75,minimum-scale=0.75,target-densitydpi=device-dpi" />');
+        }
+    } else {
+        document.write('<meta name="viewport" content="width=640, user-scalable=no">');
+    }
+  </script> 
+</html>
