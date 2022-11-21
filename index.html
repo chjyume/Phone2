@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-    <meta http-equiv="Refresh" content="10;url=index2.html">
+    <meta http-equiv="Refresh" content="20;url=index2.html">
 		<title>启动页面</title>
 	</head>
 	<body>
@@ -56,8 +56,8 @@
         rgba(0, 0, 0, 0.1) 0);
       border-radius: 25px;
       background-size: 60px; /* height */
-      clip-path: polygon(0 0, var(--progress-number) 0, var(--progress-number) 101%, 0 101%);
-      animation: move 2s linear 1;
+      animation: move 2s linear infinite;
+      clip-path: polygon(0 0, var(--progress-number) 0, var(--progress-number) 100%, 0 100%);
     }
     
     @keyframes move {
@@ -169,25 +169,23 @@
       rootStyle.setProperty('--progress-string', `"${n}%"`)
     }, 100)
     </script>
-    <script>
-      var deviceWidth = parseInt(window.screen.width);  //获取当前设备的屏幕宽度
-      var deviceScale = deviceWidth / 640;  //得到当前设备屏幕与640之间的比例，之后我们就可以将网页宽度固定为640px
-      var deviceHeight = parseInt(window.screen.height);
-      var ua = navigator.userAgent;
-      //获取当前设备类型（安卓或苹果）
-      if (/Android (\d+\.\d+)/.test(ua)) {
-          var version = parseFloat(RegExp.$1);
-          if (version > 2.3) {
-              document.write('<meta name="viewport" content="width=640,height=deviceHeight,initial-scale=' + deviceScale + ', 
-              minimum-scale = ' + deviceScale + ', maximum-scale = ' + deviceScale + ', target-densitydpi=device-dpi">');
-          } else {
-              document.write('<meta name="viewport" content="width=640,initial-scale=0.75,maximum-scale=0.75,
-              minimum-scale=0.75,target-densitydpi=device-dpi" />');
-          }
-      } else {
-          document.write('<meta name="viewport" content="width=640, user-scalable=no">');
-      }
-    </script> 
+   <script>
+    var deviceWidth = parseInt(window.screen.width);  //获取当前设备的屏幕宽度
+    var deviceScale = deviceWidth / 640;  //得到当前设备屏幕与640之间的比例，之后我们就可以将网页宽度固定为640px
+    var deviceHeight = parseInt(window.screen.height);
+    var ua = navigator.userAgent;
+    //获取当前设备类型（安卓或苹果）
+    if (/Android (\d+\.\d+)/.test(ua)) {
+        var version = parseFloat(RegExp.$1);
+        if (version > 2.3) {
+            document.write('<meta name="viewport" content="width=640,height=deviceHeight,initial-scale=' + deviceScale + ', minimum-scale = ' + deviceScale + ', maximum-scale = ' + deviceScale + ', target-densitydpi=device-dpi">');
+        } else {
+            document.write('<meta name="viewport" content="width=640,initial-scale=0.75,maximum-scale=0.75,minimum-scale=0.75,target-densitydpi=device-dpi" />');
+        }
+    } else {
+        document.write('<meta name="viewport" content="width=640, user-scalable=no">');
+    }
+  </script> 
     </html>	
 	</body>
 </html>
