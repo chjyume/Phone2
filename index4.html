@@ -20,10 +20,24 @@
       position: relative;
       justify-content:center;
    }
-   
+   .img1{
+    position:absolute;
+    margin:0 auto;
+    margin-right: 480px;
+    object-fit: cover;
+	  z-index:-1;
+  }
+  .img2{
+    position:absolute;
+      margin:0px auto;
+  
+	    z-index:0;
+  }
    </style>
 	</head>
 	<body>
+    <div class="img1"><img src="img/head.webp" width="135px"  alt=""></div>
+    <div class="img2"><img src="img/frame1.webp" width="630px"  alt=""></div>
 	</body>
   <script>
     var deviceWidth = parseInt(window.screen.width);  //获取当前设备的屏幕宽度
