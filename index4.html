@@ -23,23 +23,146 @@
    .img1{
     position:absolute;
     margin:0 auto;
+    margin-top: -10px;
     margin-right: 480px;
     object-fit: cover;
 	  z-index:-1;
   }
   .img2{
     position:absolute;
-      margin:0px auto;
-  
-	    z-index:0;
+    margin:0px auto;
+    margin-top: -45px;
+	  z-index:0;
   }
-   </style>
+  .img3{
+    position:absolute;
+    margin:0px auto;
+    margin-top: -45px;
+	  z-index:1;
+  }
+  .img4{
+    position:absolute;
+    margin:0px auto;
+    margin-top: 410px;
+    margin-left: 15px;
+	  z-index:2;
+  }
+  ul{
+     list-style: none;
+  }
+  .chose{
+    position:relative;
+    display: flex;
+    width: 280px;
+    margin-top:730px;
+    margin-right: 200px;
+    z-index: 3;
+  }
+  .chose li{
+    font-size: 23px;
+    color:white;
+    font-weight:bold;
+    flex: 1;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius:10px;
+  }
+  .box{
+    position: absolute;
+    display: flex;
+    width: 500px;
+    margin:0 auto;
+    margin-top:800px;
+  }
+  .box div{
+    z-index: 4;
+    position: absolute;
+    left: 0%;
+    top: 20px;
+    width: 550px;
+    height: 200px;
+    /* 都隐藏显示 */
+    display: none;
+  }
+  .mid2Div{
+    background-color: rgb(255, 255, 255);
+    border-radius:10px;
+    width: 125px;
+    cursor: pointer;
+  }
+  .chose .active{
+    background-color: rgb(255, 255, 255);
+    color:purple;
+  }
+  .box .active{
+    display: block;
+  }
+  </style>
+  
 	</head>
 	<body>
-    <div class="img1"><img src="img/head.webp" width="135px"  alt=""></div>
-    <div class="img2"><img src="img/frame1.webp" width="630px"  alt=""></div>
+    <div class="img1"><img src="img/head.webp" width="120px"  alt=""></div>
+    <div class="img2"><img src="img/frame1.webp" width="600px"  alt=""></div>
+    <div class="img3"><img src="img/human.webp" width="600px"  alt=""></div>
+    <div class="img4" id="show"> 
+      <img id="path1" src="img/path1.png" width="240px"/>
+  </div>
+    <ul class="chose">
+      <li class="active">上衣</li>
+      <li>裤子</li>
+      <li>鞋子</li>
+  </ul>
+  <ul class="box">
+      <div class="active">
+        <img src="img/path1.png" width="125px" class="mid2Div" />
+        <img src="img/path2.png" width="125px" class="mid2Div" />
+        <img src="img/path3.png" width="125px" class="mid2Div" />
+        <img src="img/path4.png" width="125px" class="mid2Div" />
+      </div>
+      <div>
+        <img src="img/path1.png"  class="mid2Div" onclick="ChangePath(1)"/>
+        <img src="img/path2.png"  class="mid2Div" onclick="ChangePath(2)"/>
+        <img src="img/path3.png"  class="mid2Div" onclick="ChangePath(3)"/>
+        <img src="img/path4.png"  class="mid2Div" onclick="ChangePath(4)"/>
+      </div>
+      <div>
+        <img src="img/path1.png" width="125px" class="mid2Div" />
+        <img src="img/path2.png" width="125px" class="mid2Div" />
+        <img src="img/path3.png" width="125px" class="mid2Div" />
+        <img src="img/path4.png" width="125px" class="mid2Div" />
+      </div>
+  </ul>
 	</body>
   <script>
+    function ChangePath(id){
+    document.getElementById("path1").src="img/path"+id+".png";
+ }
+
+    var ochoseItems = document.querySelectorAll(".chose li")
+    var oBoxItems = document.querySelectorAll(".box div")
+    for(var i=0;i<ochoseItems.length;i++){
+        //点击之前给li标签加上自定义属性，方便知道点击的是哪一个标签事件
+        ochoseItems[i].dataset.index = i
+        ochoseItems[i].onclick = handler
+        
+    }
+    function handler(){
+            // console.log(i)//大坑
+            //this:拿到当前的对象，这样我们点击哪一个标签就知道当前标签是第几个了
+            // console.log(this.dataset.index)
+            var index = this.dataset.index
+            //移除所有标签身上的active属性
+            for(var m=0;m<ochoseItems.length;m++){
+                ochoseItems[m].classList.remove("active")
+                oBoxItems[m].classList.remove("active")
+            }
+            ochoseItems[index].classList.add("active")
+            oBoxItems[index].classList.add("active")
+    }
+
+
+
     var deviceWidth = parseInt(window.screen.width);  //获取当前设备的屏幕宽度
     var deviceScale = deviceWidth / 640;  //得到当前设备屏幕与640之间的比例，之后我们就可以将网页宽度固定为640px
     var deviceHeight = parseInt(window.screen.height);
