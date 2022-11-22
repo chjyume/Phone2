@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <title>时尚濮院</title>
+    <meta charset="utf-8" />
+	<style type="text/css">
+      html{
+      	width: 100%;
+      	height:100% ;
+      	margin: 0px auto;
+      }
+      body{     	
+        background-image:url("img/大背景4.png");
+ 		background-repeat:no-repeat;
+        background-size:cover;
+        /*position: relative;*/
+      }
+      
+      .box{
+      	width: 640px;
+      	height: 1030px;
+      	
+      }
+
+      				
+      :root{
+      	--width:35rem;
+      	--height:45rem;
+      }	
+     /* 清除边距*/
+     *{
+      	margin: 0;
+      	padding:0;
+      	list-style: none;
+      }
+      a{
+      	text-decoration: none;
+      }
+      
+      body{
+      	left: 10%;
+      	display: flex;
+      	margin: 0 auto;
+      	height: 100vh;
+      	align-items: center;
+      	/*position: relative;*/
+      }
+      div.slide{
+      	width: var(--width);
+      	height: var(--height);
+      	/*border: .2rem dashed purple;*/
+      	overflow: hidden;
+      	/*给input做定位参考*/
+      	position: relative;
+      	top: -15%;
+      	left: 5%;
+      	border: .5rem solid #99ccff;
+      	border-radius: 150px;
+      }
+      
+      ul.list{
+      	width: calc(var(--width)*4);
+      	height: inherit;
+      	/*border: .5rem dashed blue;*/
+      	position: abso0lute;
+      	z-index: -1;
+      	/*为了看到完整效果,延时1s*/
+      	animation: move 9s ease 1s infinite;
+      }
+     
+      @keyframes move{
+      	0%{
+      		transform: translate(calc(0*var(--width)));
+      	}
+      	10%{
+      		transform: translate(calc(0*var(--width)));
+      	}
+      	33%{
+      		transform: translate(calc(-1*var(--width)));
+      	}
+      	43%{
+      		transform: translate(calc(-1*var(--width)));
+      	}
+      	66%{
+      		transform: translate(calc(-2*var(--width)));
+      	}
+      	73%{
+      		transform: translate(calc(-2*var(--width)));
+      	}    
+      	100%{
+      		transform: translate(calc(-3*var(--width)));
+      	}           	  	
+      }
+      li.item{
+      	width: var(--width);
+      	height: inherit;
+      	box-sizing: border-box;
+      	/*border: .5rem solid #99ccff;
+      	border-radius: 150px;*/
+      	/*background-color:wheat ;*/
+      	color: #fff;
+      	font-size: 4rem;
+      	text-align: center;
+      	line-height: var(--height);
+      	float: left;
+      }
+      input{
+      	display: none;
+      }
+      .labels{
+      	position: absolute;
+      	bottom: 4%;
+      	/*注意层级*/
+      	z-index: 1;
+      	width: inherit;
+      	/*background-color: red;*/
+      	justify-content: center;
+      	display: none;
+      }
+      
+
+      
+      .slide:hover .labels{
+      	display: flex;
+      }
+      
+      .slide:hover{
+      	cursor: pointer;
+      }
+      
+      .labels label{
+      	width: .8rem;
+      	height: .8rem;
+      	border-radius: 80%;
+      	margin: 0.5rem;
+      	border: .2rem solid #FFFFFF;
+      	background-color: transparent;
+      	box-sizing: border-box;
+      	cursor: pointer;
+      }
+      /*选中后背景色*/
+      input[id=pic1]:checked~.labels label[for=pic1],
+      input[id=pic2]:checked~.labels label[for=pic2],
+      input[id=pic3]:checked~.labels label[for=pic3]{
+      	background-color: #FFFFFF;
+      	border: .2rem solid #FFFFFF;
+      }
+      input[id=pic1]:checked~ul.list{
+      	transform: translate(calc(0*var(--width)));
+      }
+      input[id=pic2]:checked~ul.list{
+      	transform: translate(calc(-1*var(--width)));
+      }      
+      input[id=pic3]:checked~ul.list{
+      	transform: translate(calc(-2*var(--width)));
+      }
+      /*input[id=pic1]:checked~ul.list{
+      	transform: translate(calc(-3*var(--width)));
+      }*/
+      .slide:hover .list{
+      	animation-play-state: paused;
+      	animation: none;
+      }
+
+     .word {
+     	position: absolute;
+     	top: 66%;
+     	left: 13%;
+	    width: 65%;
+	    height: 8%;
+	    align-items: center;
+	    /*background-color: #eee;*/
+	    overflow: auto;
+	    /*margin-top:200px;*/
+	    font-size: 30px;
+	    font-family: "宋体";
+	    /*font-weight: bold;*/
+	    color:#9900ff ;
+	    /*text-shadow: 0 0 2px mediumpurple ;*/
+
+	}
+	
+	.background{
+		width: 80%;
+		position: absolute;
+		align-items: center;
+		z-index: -10;
+		top: 30%;
+		left: 5%;
+	}
+	
+	
+            
+    </style>
+
+	<body>
+	<div class="slide">
+    	<!--小圆点-->
+    	<input type="radio" name="pic" id="pic1"  checked>
+    	<input type="radio" name="pic" id="pic2">
+    	<input type="radio" name="pic" id="pic3">
+    	<div class="labels">
+    		<label for="pic1"></label>
+    		<label for="pic2"></label>
+    		<label for="pic3"></label>
+    	</div>
+    	<ul class="list">
+    		<li class="item">
+    			<img src="img/介绍图片2.1.png" height="100%" width="100%" >
+    			<!--<div class="word"><p>濮院·国际毛衫品牌中心 位于嘉兴市桐乡市工 贸大道与中兴中路交汇处东南<br><br></p></div>-->
+    		</li>
+    		<li class="item">
+    			<img src="img/介绍图片2.2.png" height="100%" width="100%" >
+    			<!--<div class="word"><p>经过近30年发展，濮院已形成完整的市场体系 濮院集聚着5000多家羊毛衫企业<br><br></p></div>-->
+    		</li>
+    		<li class="item">
+    			<img src="img/介绍图片2.3.png" height="100%" width="100%" >
+    			<!--<div class="word"><p>濮院已形成完整的市场体系，从毛纱原料、针织机 械、技术开发、物流检测、外贸服务到人力资源、 配套设施<br><br></p></div>-->
+    		</li>
+    		<li class="item">
+    			<img src="img/介绍图片2.1.png" height="100%" width="100%" >
+    			<!--<div class="word"><p>濮院·国际毛衫品牌中心 位于嘉兴市桐乡市工 贸大道与中兴中路交汇处东南<br><br></p> </div>-->
+    		</li>    		
+    	</ul>
+    </div>
+	
+	
+	
+		<div class="word">
+    	<p>濮院·国际毛衫濮院时尚中心位于浙江省嘉兴市 羊毛衫市场核心区中心<br><br></p>
+    	<p>建筑形态像是由缠绕的线团绕出的三个线筒。中心 一至五楼裙房为批发市场<br><br></p>
+    	<p>包括精品男装、女装、空中花园、多功能展厅、网红直播摄影基地功能区<br><br></p>
+		</div>
+	
+	
+	<div class="background"><img src="img/小背景 3.png" height="100%" width="100%"></div>
+	
+  <!--  </div><div class="background-small"><img src="img/小背景.png" height="514.5px" width="535.5px"></div>-->
+    
+	</body>
+</html>
