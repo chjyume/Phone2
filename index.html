@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-    <meta http-equiv="Refresh" content="9;url=index2.html">
+    <meta http-equiv="Refresh" content="10;url=index2.html">
 		<title>启动页面</title>
 	</head>
 	<body>
@@ -30,9 +30,14 @@
       align-items: center;
       margin-top: -430px;   
    }
+    :root {
+      --progress-number: 100%;
+      --progress-string: "100%"
+    }
     .progress {
       box-shadow: 0 0 10px #666, 0 0 10px #666 inset;
-      width: 400px; height: 60px;
+      width: 400px;
+       height: 60px;
       border: 4px solid rgb(85, 113, 255); 
       border-radius: 30px;
       margin: 700px auto; 
@@ -157,19 +162,23 @@
         <span>.</span>
       </h1>  
       <div class="shadow position-center font"></div>
-      <div class="bar position-center font"></div>
-      
+      <div class="bar position-center font"></div>  
     </div>
     </body>
     <script>
     let n = 0, rootStyle = document.documentElement.style
     setInterval(function count () {
+      if(n<100){
       n= n % 100 + 1 
       rootStyle.setProperty('--progress-number', `${n}%`)
       rootStyle.setProperty('--progress-string', `"${n}%"`)
+      }else{
+      rootStyle.setProperty('--progress-number', `${100}%`)
+      rootStyle.setProperty('--progress-string', `"${100}%"`)
+      }
+
     }, 100)
-    </script>
-   <script>
+
     var deviceWidth = parseInt(window.screen.width);  //获取当前设备的屏幕宽度
     var deviceScale = deviceWidth / 640;  //得到当前设备屏幕与640之间的比例，之后我们就可以将网页宽度固定为640px
     var deviceHeight = parseInt(window.screen.height);

@@ -135,10 +135,12 @@
   </ul>
 	</body>
   <script>
+
+  //换裤子
     function ChangePath(id){
     document.getElementById("path1").src="img/path"+id+".png";
  }
-
+//选项卡
     var ochoseItems = document.querySelectorAll(".chose li")
     var oBoxItems = document.querySelectorAll(".box div")
     for(var i=0;i<ochoseItems.length;i++){
@@ -162,7 +164,7 @@
     }
 
 
-
+//适配手机
     var deviceWidth = parseInt(window.screen.width);  //获取当前设备的屏幕宽度
     var deviceScale = deviceWidth / 640;  //得到当前设备屏幕与640之间的比例，之后我们就可以将网页宽度固定为640px
     var deviceHeight = parseInt(window.screen.height);
