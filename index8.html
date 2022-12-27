@@ -14,7 +14,7 @@
         margin:0px auto;
         width:100%; 
         height:100%;
-        background-image:url("img/bg8.1.png");
+        background-image:url("img/bg8.1.webp");
         background-repeat:no-repeat;
         background-size:cover;
         display:flex;
@@ -98,16 +98,16 @@
 	</head>
 	<body>
         <div class="text">
-            <img id="txtbox"src="img/frame8.3.png" width="550px"  alt="">
+            <img id="txtbox"src="img/frame8.3.webp" width="550px"  alt="">
                 <h2>羊毛衫市场的货物发生了混乱，请你帮助我们！</h2>
                 <p id="txt"><b>在限定时间内尽可能的点击相同的货物进行整理</b></p>
         </div>
         <div > 
-            <img id="timebox"src="img/time8.2.png" width="150px"  alt="">
+            <img id="timebox"src="img/time8.2.webp" width="150px"  alt="">
             <div class="box"></div>
         </div>
         <div id="scbox">
-            <img id="sc"src="img/sc8.3.png" width="250px"  alt="">
+            <img id="sc"src="img/sc8.3.webp" width="250px"  alt="">
             <p id="sctxt">得 分 ： 0</p>
         </div>
 	</body>
@@ -136,10 +136,10 @@ function drawScore(){
         for(j=0;j<=n+1;j++)
         {
             k=parseInt(9*Math.random());
-            imgpath="img/img8/"+k+".png";
+            imgpath="img/img8/"+k+".webp";
             str_element="<img id="+(i*(n+2)+j)+" src="+imgpath+" onmousedown='myclick(event)' class='llk_img' width='85px' height='85px' />";
             if(i==0||j==0||i==n+1||j==n+1)
-                str_element="<img id="+(i*(n+2)+j)+" src='img/img8/20.gif' width=0 height=0 dispaly='hidden'/>";
+                str_element="<img id="+(i*(n+2)+j)+" src='img/img8/20.webp' width=0 height=0 dispaly='hidden'/>";
             document.write(str_element);
         }
         document.write("<br/>");
@@ -264,7 +264,7 @@ function shuffle() {
             tempObj = document.getElementById(tempId);
             if (tempObj.src != obj0.src) {
                 k=parseInt(10*Math.random());
-                imgpath="img/img8/"+k+".png";
+                imgpath="img/img8/"+k+".webp";
                tempObj.src=imgpath;
             }
         }
