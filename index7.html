@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>换装男页面</title>
+		<style>
+    html{
+      width:640px; 
+      height:100%;
+      margin:0px auto;
+    }
+    body{ 
+      margin:0px auto;
+      width:100%; 
+      height:100%;
+      background-image:url("img/background4.1.webp");
+      background-repeat:no-repeat;
+     	background-size:cover;
+      display:flex;
+      position: relative;
+      justify-content:center;
+   }
+   .img1{
+    position:absolute;
+    margin:0 auto;
+    margin-top: -10px;
+    margin-right: 480px;
+    object-fit: cover;
+	  z-index:9;
+  }
+  .img2{
+    position:absolute;
+    margin:0px auto;
+    margin-top: -45px;
+	  z-index:0;
+  }
+  .img3{
+    position:absolute;
+    margin:0px auto;
+    margin-top: -45px;
+	  z-index:1;
+  }
+  
+  #clothes{
+    position:absolute;
+    top: 220px;
+    left: 168px;
+    z-index:2;
+  }
+  #shoe{
+    position:absolute;
+    top: 525px;
+    left: 215px;
+    z-index:2;
+  }
+  #path{
+    position:absolute;
+    top: 395px;
+    left: 210px;
+    z-index:2;
+  }
+  ul{
+     list-style: none;
+  }
+  .chose{
+    position:relative;
+    display: flex;
+    width: 280px;
+    margin-top:710px;
+    margin-right: 200px;
+    z-index: 3;
+  }
+  .chose li{
+    font-size: 23px;
+    color:white;
+    font-weight:bold;
+    flex: 1;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius:10px;
+  }
+  .box{
+    position: absolute;
+    display: flex;
+    width: 500px;
+    margin:0 auto;
+    margin-top:750px;
+  }
+  .box div{
+    z-index: 4;
+    position: absolute;
+    left: 0%;
+    top: 20px;
+    width: 550px;
+    height: 200px;
+    /* 都隐藏显示 */
+    display: none;
+  }
+  .mid2Div{
+    background-color: rgb(255, 255, 255);
+    border-radius:10px;
+    width: 125px;
+    cursor: pointer;
+  }
+  .chose .active{
+    background-color: rgb(255, 255, 255);
+    color:purple;
+  }
+  .box .active{
+    display: block;
+  }
+  #bt2{
+        display:flex;
+        position:absolute;
+        top: 910px;
+        left: 200px;
+        border: 3px solid rgb(105, 0, 251);
+        border-radius: 30px;
+        z-index: 6;
+   } 
+   .txtbt2{
+        position:absolute;
+        font-size: 35px;
+        top: 920px;
+        left: 250px;
+        z-index: 7;
+    }
+  </style>
+  
+	</head>
+	<body>
+    <div class="img1"><img src="img/head.webp" width="120px"  alt="" onclick="javascript:location.href='index12.html'"></div>
+    <div class="img2"><img src="img/frame1.webp" width="700px"  alt=""></div>
+    <div class="img3"><img src="img/human.webp" width="600px"  alt=""></div>
+    <div class="img4" id="show"> 
+      <img id="path" src="img/path1.webp" width="210px"/>
+      <img id="clothes" src="img/clothes1.webp" width="300px"/>
+      <img id="shoe" src="img/shoe1.webp" width="200px"/>
+  </div>
+  <div class="bt" >
+    <img id="bt2" src="img/bt9.3.webp" width="250px"  alt=""  >
+    <div class="txtbt2" onclick="javascript:location.href='index10.html'">完成换装</div>
+</div>
+    <ul class="chose">
+      <li class="active">上衣</li>
+      <li>裤子</li>
+      <li>鞋子</li>
+  </ul>
+  <ul class="box">
+      <div class="active">
+        <img src="img/clothes1.webp" width="125px" class="mid2Div" onclick="ChangeClothes(1)" />
+        <img src="img/clothes2.webp" width="125px" class="mid2Div" onclick="ChangeClothes(2)"/>
+        <img src="img/clothes3.webp" width="125px" class="mid2Div" onclick="ChangeClothes(3)" />
+        <img src="img/clothes4.webp" width="125px" class="mid2Div" onclick="ChangeClothes(4)" />
+      </div>
+      <div>
+        <img src="img/path1.webp"  class="mid2Div" onclick="ChangePath(1)"/>
+        <img src="img/path2.webp"  class="mid2Div" onclick="ChangePath(2)"/>
+        <img src="img/path3.webp"  class="mid2Div" onclick="ChangePath(3)"/>
+        <img src="img/path4.webp"  class="mid2Div" onclick="ChangePath(4)"/>
+      </div>
+      <div>
+        <img src="img/shoe1.webp" width="125px" class="mid2Div"  onclick="ChangeShoe(1)"/>
+        <img src="img/shoe2.webp" width="125px" class="mid2Div"  onclick="ChangeShoe(2)"/>
+        <img src="img/shoe3.webp" width="125px" class="mid2Div"  onclick="ChangeShoe(3)"/>
+        <img src="img/shoe4.webp" width="125px" class="mid2Div"  onclick="ChangeShoe(4)"/>
+      </div>
+  </ul>
+	</body>
+  <script>
+
+  //换裤子
+    function ChangePath(id){
+    document.getElementById("path").src="img/path"+id+".webp";
+ }
+ function ChangeClothes(id){
+    document.getElementById("clothes").src="img/clothes"+id+".webp";
+ }
+ function ChangeShoe(id){
+    document.getElementById("shoe").src="img/shoe"+id+".webp";
+ }
+//选项卡
+    var ochoseItems = document.querySelectorAll(".chose li")
+    var oBoxItems = document.querySelectorAll(".box div")
+    for(var i=0;i<ochoseItems.length;i++){
+        //点击之前给li标签加上自定义属性，方便知道点击的是哪一个标签事件
+        ochoseItems[i].dataset.index = i
+        ochoseItems[i].onclick = handler
+        
+    }
+    function handler(){
+            // console.log(i)//大坑
+            //this:拿到当前的对象，这样我们点击哪一个标签就知道当前标签是第几个了
+            // console.log(this.dataset.index)
+            var index = this.dataset.index
+            //移除所有标签身上的active属性
+            for(var m=0;m<ochoseItems.length;m++){
+                ochoseItems[m].classList.remove("active")
+                oBoxItems[m].classList.remove("active")
+            }
+            ochoseItems[index].classList.add("active")
+            oBoxItems[index].classList.add("active")
+    }
+
+
+//适配手机
+    var deviceWidth = parseInt(window.screen.width);  //获取当前设备的屏幕宽度
+    var deviceScale = deviceWidth / 640;  //得到当前设备屏幕与640之间的比例，之后我们就可以将网页宽度固定为640px
+    var deviceHeight = parseInt(window.screen.height);
+    var ua = navigator.userAgent;
+    //获取当前设备类型（安卓或苹果）
+    if (/Android (\d+\.\d+)/.test(ua)) {
+        var version = parseFloat(RegExp.$1);
+        if (version > 2.3) {
+            document.write('<meta name="viewport" content="width=640,height=deviceHeight,initial-scale=' + deviceScale + ', minimum-scale = ' + deviceScale + ', maximum-scale = ' + deviceScale + ', target-densitydpi=device-dpi">');
+        } else {
+            document.write('<meta name="viewport" content="width=640,initial-scale=0.75,maximum-scale=0.75,minimum-scale=0.75,target-densitydpi=device-dpi" />');
+        }
+    } else {
+        document.write('<meta name="viewport" content="width=640, user-scalable=no">');
+    }
+  </script> 
+</html>

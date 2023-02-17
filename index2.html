@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>地图页面</title>
+		<style>
+    html{
+      width:640px; 
+      height: 1030px;
+      margin:0px auto;
+      overflow-x: hidden;
+    }
+    body{ 
+      overflow-x: hidden;
+      margin:0px auto;
+      width:100%; 
+      height:100%;
+      background-image:url("img/img4/大背景.webp");
+      background-repeat:no-repeat;
+     	background-size:cover;
+      display:flex;
+      position: relative;
+      justify-content:center;
+      
+   }
+   .img0{
+   	  position:absolute;
+      margin-top:680px;
+      margin-left:290px;
+	    z-index:5;
+   }
+   .img1{
+   	  position:absolute;
+      margin:0px auto;
+      margin-top:480px;
+      margin-right:370px;
+	    z-index:5;
+   }
+   .img2{
+   	  position:absolute;
+      margin:0px auto;
+      margin-top: 310px;
+      margin-left: 240px;  
+	    z-index:5;
+   }
+   .img3{
+   	  position:absolute;
+      margin:0px auto;
+      margin-top: 720px;
+      margin-left: 315px;  
+	    z-index:1;
+      cursor: pointer;
+   }
+   .img4{
+   	  position:absolute;
+      margin:0px auto;
+      margin-top: 485px;
+      margin-right: 240px;  
+	    z-index:1;
+   }
+   .img5{
+   	  position:absolute;
+      margin:0px auto;
+      margin-top: 295px;
+      margin-left: 285px;  
+	    z-index:1;
+   }
+   .img6{
+   	  position:absolute;
+      margin:0px auto;
+      margin-top: 30px;
+      margin-left: 20px;  
+	    z-index:2;
+   }
+   </style>
+	</head>
+	<body>
+	<div class="img0"><img src="img/img4/品牌中心标牌.webp" width="130px" height="40px" alt=""></div>
+	<div class="img1"><img src="img/img4/时尚中心标牌.webp" width="130px"  alt=""></div>
+	<div class="img2"><img src="img/img4/市场标牌.webp" width="130px"  alt=""></div>
+    <div class="img3"><img src="img/img4/build1.webp" width="330px"  alt="" onclick="javascript:location.href='index4.html'"></div>
+    <div class="img4"><img src="img/img4/build2.webp" width="330px"  alt="" onclick="javascript:location.href='index5.html'"></div>
+    <div class="img5"><img src="img/img4/build3.webp" width="330px"  alt="" onclick="javascript:location.href='index6.html'"></div>
+    <div class="img6"><img src="img/img4/大标题.webp" width="430px"  alt=""></div>
+		
+	</body>
+  <script>
+    var deviceWidth = parseInt(window.screen.width);  //获取当前设备的屏幕宽度
+    var deviceScale = deviceWidth / 640;  //得到当前设备屏幕与640之间的比例，之后我们就可以将网页宽度固定为640px
+    var deviceHeight = parseInt(window.screen.height);
+    var ua = navigator.userAgent;
+    //获取当前设备类型（安卓或苹果）
+    if (/Android (\d+\.\d+)/.test(ua)) {
+        var version = parseFloat(RegExp.$1);
+        if (version > 2.3) {
+            document.write('<meta name="viewport" content="width=640,height=deviceHeight,initial-scale=' + deviceScale + ', minimum-scale = ' + deviceScale + ', maximum-scale = ' + deviceScale + ', target-densitydpi=device-dpi">');
+        } else {
+            document.write('<meta name="viewport" content="width=640,initial-scale=0.75,maximum-scale=0.75,minimum-scale=0.75,target-densitydpi=device-dpi" />');
+        }
+    } else {
+        document.write('<meta name="viewport" content="width=640, user-scalable=no">');
+    }
+  </script> 
+</html>

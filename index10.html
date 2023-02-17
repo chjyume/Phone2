@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <title>奖章页面 </title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <style>
+    html{
+        width:640px; 
+        height:100%;
+        margin:0px auto;
+        padding: 0 auto;
+        }
+    body{ 
+        margin:0px auto;
+        width:100%; 
+        height:100%;
+        background-image:url("img/bg10.1.webp");
+        background-repeat:no-repeat;
+        background-size:cover;
+        display:flex;
+        position: relative;
+        justify-content:center;
+   }
+   .text{
+        height: 130px;
+        top:500px;
+   }
+   #txtbox{
+        display:flex;
+        position:absolute;
+        margin:0px auto;
+        margin-top: 125px;
+        margin-left: -280px;
+        z-index: -1;
+   }
+
+   #txt1{
+        top: 125px;
+        position:absolute;
+        left: 140px;
+        font-size: 30px;
+        z-index: 0;
+   }
+   #txt2{
+        top: 165px;
+        position:absolute;
+        left: 180px;
+        font-size: 30px;
+        z-index: 0;
+   }
+   #bt2{
+        display:flex;
+        position:absolute;
+        top: 830px;
+        left: 200px;
+        z-index: 1;
+   } 
+   .txtbt2{
+        position:absolute;
+        font-size: 35px;
+        top: 840px;
+        left: 250px;
+        z-index: 2;
+    }
+    #prize{
+        position:absolute;
+        z-index: 1;
+        top: 310px;
+    }
+</style>
+</head>
+<body>
+    <div class="txt">
+        <img id="txtbox"src="img/frame10.2.webp" width="550px"  alt="">
+        <p id="txt1">恭喜你完成了濮院云游之旅！</p>
+        <p id="txt2">请收下你的活动奖章</p>  
+    </div>
+    <img id="prize"src="img/prize10.4.webp" width="360px"  height="480px" alt="">
+    <div class="bt" >
+        <img id="bt2" src="img/bt9.3.webp" width="250px"  alt=""  >
+        <div class="txtbt2" onclick="javascript:location.href='index2.html'">返回地图</div>
+    </div>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(function(){
+    $("#show").html(oneValues());
+    })
+    
+    //接收一个值
+    function oneValues(){
+    var result;
+    var url=window.location.search; //获取url中"?"符后的字串  
+    if(url.indexOf("?")!=-1){
+    result = url.substr(url.indexOf("=")+1);
+    }
+    return result;
+    }
+
+    var deviceWidth = parseInt(window.screen.width);  //获取当前设备的屏幕宽度
+    var deviceScale = deviceWidth / 640;  //得到当前设备屏幕与640之间的比例，之后我们就可以将网页宽度固定为640px
+    var deviceHeight = parseInt(window.screen.height);
+    var ua = navigator.userAgent;
+    //获取当前设备类型（安卓或苹果）
+    if (/Android (\d+\.\d+)/.test(ua)) {
+        var version = parseFloat(RegExp.$1);
+        if (version > 2.3) {
+            document.write('<meta name="viewport" content="width=640,height=deviceHeight,initial-scale=' + deviceScale + ', minimum-scale = ' + deviceScale + ', maximum-scale = ' + deviceScale + ', target-densitydpi=device-dpi">');
+        } else {
+            document.write('<meta name="viewport" content="width=640,initial-scale=0.75,maximum-scale=0.75,minimum-scale=0.75,target-densitydpi=device-dpi" />');
+        }
+    } else {
+        document.write('<meta name="viewport" content="width=640, user-scalable=no">');
+    }
+    </script>

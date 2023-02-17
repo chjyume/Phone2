@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>选择性别页面 </title>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<style>
+ html{
+      width:640px; 
+      height:100%;
+      margin:0px auto;
+      padding: 0 auto;
+    }
+    body{ 
+        margin:0px auto;
+        width:100%; 
+        height:100%;
+        background-image:url("img/bg8.1.webp");
+        background-repeat:no-repeat;
+        background-size:cover;
+        display:flex;
+        position: relative;
+        justify-content:center;
+   }
+    #bt1{
+        display:flex;
+        position:absolute;
+        top: 300px;
+        left: 150px;
+        z-index: 1;
+    }
+    #bt2{
+        display:flex;
+        position:absolute;
+        top: 600px;
+        left: 175px;
+        z-index: 1;
+    }
+    #txtbox{
+        display:flex;
+        position:absolute;
+        margin:0px auto;
+        margin-top: 125px;
+        margin-left: -280px;
+        z-index: -1;
+   }
+
+   #txt1{
+        top: 110px;
+        position:absolute;
+        left: 200px;
+        font-size: 50px;
+        z-index: 0;
+   }
+
+</style>
+</head>
+<body>
+    <div class="txt">
+        <img id="txtbox"src="img/frame10.2.webp" width="550px"  alt="">
+        <p id="txt1">选择性别</p>
+    </div>
+    <div class="bt" >
+        <img id="bt1" src="img/head.webp" width="300px"  alt=""  onclick="javascript:location.href='index7.html'" >
+        <img id="bt2" src="img/head2.webp" width="240px"  alt=""  onclick="javascript:location.href='index11.html'">
+    </div>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    var deviceWidth = parseInt(window.screen.width);  //获取当前设备的屏幕宽度
+    var deviceScale = deviceWidth / 640;  //得到当前设备屏幕与640之间的比例，之后我们就可以将网页宽度固定为640px
+    var deviceHeight = parseInt(window.screen.height);
+    var ua = navigator.userAgent;
+    //获取当前设备类型（安卓或苹果）
+    if (/Android (\d+\.\d+)/.test(ua)) {
+        var version = parseFloat(RegExp.$1);
+        if (version > 2.3) {
+            document.write('<meta name="viewport" content="width=640,height=deviceHeight,initial-scale=' + deviceScale + ', minimum-scale = ' + deviceScale + ', maximum-scale = ' + deviceScale + ', target-densitydpi=device-dpi">');
+        } else {
+            document.write('<meta name="viewport" content="width=640,initial-scale=0.75,maximum-scale=0.75,minimum-scale=0.75,target-densitydpi=device-dpi" />');
+        }
+    } else {
+        document.write('<meta name="viewport" content="width=640, user-scalable=no">');
+    }
+    </script>

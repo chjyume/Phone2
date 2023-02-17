@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <title>时尚濮院</title>
+    <meta charset="utf-8" />
+	<meta http-equiv="Refresh" content="5;url=index8.html">
+	<style type="text/css">
+      html{
+      	width: 640px;
+      	height:100%;
+      	margin: 0px auto;
+      }
+      body{     	
+        background-image:url("img/img3/大背景.webp");
+ 		background-repeat:no-repeat;
+        background-size:cover;
+        /*position: relative;*/
+      }
+       
+
+      				
+      :root{
+      	--width:400px;
+      	--height:500px;
+      }	
+     /* 清除边距*/
+     *{
+      	margin: 0;
+      	padding:0;
+      	list-style: none;
+      }
+      a{
+      	text-decoration: none;
+      }
+      
+      body{
+      	left: 300px;
+      	display: flex;
+      	margin: 0 auto;
+      	height: 100%;
+      	align-items: center;
+      	justify-content: center; 
+      	/*position: relative;*/
+      }
+      div.slide{
+      	width: var(--width);
+      	height: var(--height);
+      	/*border: .2rem dashed purple;*/
+      	overflow: hidden;
+      	/*给input做定位参考*/
+      	position: relative;
+      	margin:0px auto;
+      	border: .5rem solid #99ccff;
+      	border-radius: 110px;
+      	top:-150px;
+      	left: -68px;
+      }
+      
+      ul.list{
+      	width: calc(var(--width)*4);
+      	height: inherit;
+      	/*border: .5rem dashed blue;*/
+      	position: absolute;
+      	z-index: -1;
+      	/*为了看到完整效果,延时1s*/
+      	animation: move 9s ease 1s infinite;
+      }
+     
+      @keyframes move{
+      	0%{
+      		transform: translate(calc(0*var(--width)));
+      	}
+      	10%{
+      		transform: translate(calc(0*var(--width)));
+      	}
+      	33%{
+      		transform: translate(calc(-1*var(--width)));
+      	}
+      	43%{
+      		transform: translate(calc(-1*var(--width)));
+      	}
+      	66%{
+      		transform: translate(calc(-2*var(--width)));
+      	}
+      	73%{
+      		transform: translate(calc(-2*var(--width)));
+      	}    
+      	100%{
+      		transform: translate(calc(-3*var(--width)));
+      	}           	  	
+      }
+      li.item{
+      	width: var(--width);
+      	height: inherit;
+      	box-sizing: border-box;
+      	/*border: .5rem solid #99ccff;
+      	border-radius: 150px;*/
+      	/*background-color:wheat ;*/
+      	color: #fff;
+      	font-size: 4rem;
+      	text-align: center;
+      	line-height: var(--height);
+      	float: left;
+      }
+      input{
+      	display: none;
+      }
+      .labels{
+      	position: absolute;
+      	bottom: 4%;
+      	/*注意层级*/
+      	z-index: 1;
+      	width: inherit;
+      	/*background-color: red;*/
+      	justify-content: center;
+      	display: none;
+      }
+      
+
+      
+      .slide:hover .labels{
+      	display: flex;
+      }
+      
+      .slide:hover{
+      	cursor: pointer;
+      }
+      
+      .labels label{
+      	width: .8rem;
+      	height: .8rem;
+      	border-radius: 80%;
+      	margin: 0.5rem;
+      	border: .2rem solid #FFFFFF;
+      	background-color: transparent;
+      	box-sizing: border-box;
+      	cursor: pointer;
+      }
+      /*选中后背景色*/
+      input[id=pic1]:checked~.labels label[for=pic1],
+      input[id=pic2]:checked~.labels label[for=pic2],
+      input[id=pic3]:checked~.labels label[for=pic3]{
+      	background-color: #FFFFFF;
+      	border: .2rem solid #FFFFFF;
+      }
+      input[id=pic1]:checked~ul.list{
+      	transform: translate(calc(0*var(--width)));
+      }
+      input[id=pic2]:checked~ul.list{
+      	transform: translate(calc(-1*var(--width)));
+      }      
+      input[id=pic3]:checked~ul.list{
+      	transform: translate(calc(-2*var(--width)));
+      }
+      /*input[id=pic1]:checked~ul.list{
+      	transform: translate(calc(-3*var(--width)));
+      }*/
+      .slide:hover .list{
+      	animation-play-state: paused;
+      	animation: none;
+      }
+
+     .word {
+     	position: absolute;
+	    width: 500px;
+	    height: 60px;
+	    margin:0px auto; 
+	    overflow: auto;
+	    /*margin-top:200px;*/
+	    font-size: 25px;
+	    font-family: "宋体";
+	    /*font-weight: bold;*/
+	    color:#9900ff ;
+	    top:730px;
+
+	}
+	
+	.background{
+		width: 550px;
+		position: absolute;
+		margin:0px auto;
+		z-index: -10;
+		top:350px;
+
+	}
+	
+	
+            
+    </style>
+
+	<body>
+	<div class="slide">
+    	<!--小圆点-->
+    	<input type="radio" name="pic" id="pic1"  checked>
+    	<input type="radio" name="pic" id="pic2">
+    	<input type="radio" name="pic" id="pic3">
+    	<div class="labels">
+    		<label for="pic1"></label>
+    		<label for="pic2"></label>
+    		<label for="pic3"></label>
+    	</div>
+    	<ul class="list">
+    		<li class="item">
+    			<img src="img/img3/介绍图片1.1.webp" height="100%" width="100%" >
+    			<!--<div class="word"><p>濮院·国际毛衫品牌中心 位于嘉兴市桐乡市工 贸大道与中兴中路交汇处东南<br><br></p></div>-->
+    		</li>
+    		<li class="item">
+    			<img src="img/img3/介绍图片1.2.webp" height="100%" width="100%" >
+    			<!--<div class="word"><p>经过近30年发展，濮院已形成完整的市场体系 濮院集聚着5000多家羊毛衫企业<br><br></p></div>-->
+    		</li>
+    		<li class="item">
+    			<img src="img/img3/介绍图片1.3.webp" height="100%" width="100%" >
+    			<!--<div class="word"><p>濮院已形成完整的市场体系，从毛纱原料、针织机 械、技术开发、物流检测、外贸服务到人力资源、 配套设施<br><br></p></div>-->
+    		</li>
+    		<li class="item">
+    			<img src="img/img3/介绍图片1.1.webp" height="100%" width="100%" >
+    			<!--<div class="word"><p>濮院·国际毛衫品牌中心 位于嘉兴市桐乡市工 贸大道与中兴中路交汇处东南<br><br></p> </div>-->
+    		</li>    		
+    	</ul>
+    </div>
+	
+	
+	
+		<div class="word">
+    	<p>濮院·羊毛衫市场中心位于嘉兴市羊毛衫市场核心区<br><br></p>
+    	<p>濮院羊毛衫市场始建于1988，濮院羊毛衫批发市 场占据整个中国羊毛衫销量的70%<br><br></p>
+    	<p>濮院也因此被中国商业联合会评为"中国毛衫第 一市"和"羊毛衫之乡"<br><br></p>
+		</div>
+	
+	
+	<div class="background"><img src="img/img3/小背景 3.webp" height="100%" width="100%"></div>
+	
+  <!--  </div><div class="background-small"><img src="img/小背景.png" height="514.5px" width="535.5px"></div>-->
+  <script>
+    let n = 0, rootStyle = document.documentElement.style
+    setInterval(function count () {
+      if(n<100){
+      n= n % 100 + 1 
+      rootStyle.setProperty('--progress-number', `${n}%`)
+      rootStyle.setProperty('--progress-string', `"${n}%"`)
+      }else{
+      rootStyle.setProperty('--progress-number', `${100}%`)
+      rootStyle.setProperty('--progress-string', `"${100}%"`)
+      }
+
+    }, 100)
+
+    var deviceWidth = parseInt(window.screen.width);  //获取当前设备的屏幕宽度
+    var deviceScale = deviceWidth / 640;  //得到当前设备屏幕与640之间的比例，之后我们就可以将网页宽度固定为640px
+    var deviceHeight = parseInt(window.screen.height);
+    var ua = navigator.userAgent;
+    //获取当前设备类型（安卓或苹果）
+    if (/Android (\d+\.\d+)/.test(ua)) {
+        var version = parseFloat(RegExp.$1);
+        if (version > 2.3) {
+            document.write('<meta name="viewport" content="width=640,height=deviceHeight,initial-scale=' + deviceScale + ', minimum-scale = ' + deviceScale + ', maximum-scale = ' + deviceScale + ', target-densitydpi=device-dpi">');
+        } else {
+            document.write('<meta name="viewport" content="width=640,initial-scale=0.75,maximum-scale=0.75,minimum-scale=0.75,target-densitydpi=device-dpi" />');
+        }
+    } else {
+        document.write('<meta name="viewport" content="width=640, user-scalable=no">');
+    }
+  </script> 
+	</body>
+</html>
